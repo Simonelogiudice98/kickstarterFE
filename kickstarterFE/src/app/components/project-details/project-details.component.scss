@@ -1,0 +1,49 @@
+@import '../../../assets/partials/variables';
+
+.container{
+    margin-bottom: 15vh;
+
+    .projectContainer{
+        max-width: 900px;
+        margin: 0 auto;
+        margin-top: 8vh;
+
+        display: flex;
+        justify-content: space-between;
+
+        .divImg{
+            max-width: 500px;
+            width: 100%;
+            img{
+                width: 100%;  
+            }
+        }
+
+        .divFund{
+            max-width: 350px;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            border: 1px solid $lightGrey;
+            box-shadow: 5px 5px 5px $grey;
+
+            .fundP{
+                color:$green;
+                font-size:1.5rem
+            }
+
+            .divButton{
+                display: flex;
+
+                .buttonSave{
+                    margin-right: 2vw;
+                }
+            }
+
+        }
+    }
+}

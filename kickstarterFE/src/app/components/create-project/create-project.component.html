@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <p-toast></p-toast>
+  <div *ngIf="route.snapshot.firstChild && route.snapshot.url[0].path === 'create-project'">
+    <p-steps
+      [model]="steps"
+      [(activeIndex)]="activeIndex"
+      [readonly]="true"
+    ></p-steps>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <div
+    class="CreateProjectIntroContainer"
+    *ngIf="currentRoute === 'create-project' && !route.snapshot.firstChild"
+  >
+    <h2 class="text-center mb-4 mt-3">Join our comunity and create a project</h2>
+    <div class="divP">
+      <p class="my-3">
+        You always wanted to create a project, but you're struggling to gather the
+        necessary funds to set it up. Don't worry, our community is here to help
+        you. Create a new project and get funded for it.
+      </p>
+    </div>
+
+    <div class="d-flex justify-content-center my-3">
+      <a routerLink="/create-project/step-1">
+        <button
+          pButton
+          pRipple
+          label="create project"
+          class="p-button-success"
+        ></button>
+      </a>
+    </div>
+  </div>
+
+  <div
+    class="d-flex justify-content-between mb-5"
+    id="divButtons"
+    *ngIf="route.snapshot.firstChild && route.snapshot.url[0].path === 'create-project'"
+  >
+    <p-button
+      (click)="goBack()"
+      [disabled]="activeIndex === 0"
+      label="Back"
+      icon="pi pi-angle-left"
+      styleClass="p-button-success"
+    ></p-button>
+    <p-button
+      *ngIf="activeIndex !== 2"
+      (click)="goNext()"
+      [disabled]="isNextButtonDisabled()"
+      label="Next"
+      icon="pi pi-angle-right"
+      styleClass="p-button-success"
+    ></p-button>
+  </div>
+</div>

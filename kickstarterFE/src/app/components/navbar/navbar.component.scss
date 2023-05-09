@@ -1,0 +1,56 @@
+@import '../../../assets/partials/variables';
+
+// general style
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+// header
+
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $lightGrey;
+    margin-bottom: 1vh;
+
+    a{
+        text-decoration: none;
+        color: $black;
+    }
+
+    .discoverDiv{
+        display: flex;
+        
+    }
+
+    .loginDiv{
+        display: flex;
+        align-items: center;
+
+        .divSearch{
+            
+            .searchIcon{
+                background-color: $green;
+                padding-left:3px;
+
+                i{
+                    color: $white;
+                }
+            }
+
+            .searchInput{
+                padding-left:3px;
+            }
+        }
+
+    }
+
+    .logo{
+        max-width: 14vw;
+        max-height: 80px;
+    }
+}

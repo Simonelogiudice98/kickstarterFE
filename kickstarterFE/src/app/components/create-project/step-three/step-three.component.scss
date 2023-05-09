@@ -1,0 +1,55 @@
+@import '../../../../assets/partials/variables';
+
+.wrapper{
+
+    .overviewH1{
+        margin-top: 7vh;
+        margin-bottom: 7vh;
+    }
+
+    .overviewContainer{
+        max-width: 650px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        
+        border: 1px solid $lightGrey;
+        border-radius: 4px;
+        box-shadow: 8px 8px 8px $lightGrey;
+        margin-bottom: 8vh;
+
+        .divTitle{
+            text-align: center;
+            margin-top: 3vh;
+            margin-bottom: 3vh;
+        }
+
+        .centralOverview{
+            display: flex;
+            justify-content: space-between;
+            margin-left:8px;
+            margin-right:8px;
+            margin-bottom: 4vh;
+            padding:2px;
+            border: 2px solid $lightGrey;
+            border-radius: 4px;
+            
+            .rightDivOverview{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+        }
+
+        .descriptionDiv{
+            margin-bottom: 3vh;
+            margin-left:8px;
+            margin-right:8px;
+            border: 2px solid $lightGrey;
+            border-radius: 4px;
+            padding:2px;
+        }
+
+
+    }
+}

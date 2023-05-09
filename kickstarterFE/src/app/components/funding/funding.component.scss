@@ -1,0 +1,12 @@
+@import '../../../assets/partials/variables';
+
+.levelsContainer{
+    max-width: 600px;
+    margin: 0 auto ;
+
+    .card-body{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

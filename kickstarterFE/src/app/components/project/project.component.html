@@ -1,0 +1,65 @@
+
+<h5 class="text-center my-5">recomended projects</h5>
+
+<div class="divProject">
+    <a class="mb-2" routerlink="details">
+        <img src="../../../assets/img/images.png" alt="project">
+    </a>
+    <div class="projectDescryption">
+        <a class="mb-3" routerLink="details">
+           <h2> Project 1</h2>
+        </a>
+        <p class="my-4">This is the descryption of the project</p>
+        <div class="divButtonAndComment ">
+
+            <div class="divLike ">
+                
+                <p-button icon="pi pi-thumbs-up" styleClass="p-button-rounded p-button-primary p-button-text" 
+                (click)="onClick()"></p-button>
+                <p-button class="icons" icon="pi pi-bookmark" styleClass="p-button-rounded p-button-warning p-button-text"></p-button>
+                <p-button icon="pi pi-thumbs-down" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>
+    
+            </div>
+            <div class="card flex border-0 justify-content-center p-button-sm">
+                <button pButton pRipple label="Comment" class="p-button-success" (click)="showDialog()"></button>
+           </div>
+        </div>
+
+        <div class="card flex justify-content-center">
+            <p-dialog header="Add a Comment" [(visible)]="visible" [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+                <div class="p-fluid">
+                    <div class="d-flex justify-content-center my-3">
+                        <textarea class="textAreaComment" rows="6" cols="30" pInputTextarea [(ngModel)]="comment.body"></textarea>
+                    </div>
+                </div>
+                <p-footer class="d-flex justify-content-between">
+                    <button pButton label="Cancel" class="p-button-danger" (click)="hideDialog()"></button>
+                    <button pButton label="Submit" class="p-button-success" (click)="addComment()" ></button>
+                </p-footer>
+            </p-dialog>
+        </div>
+
+        <div>
+            <p-accordion class="w-full">
+                <p-accordionTab>
+                    <ng-template pTemplate="header">
+                        <div class="flex align-items-center">
+                            <i class="pi pi-comments"></i>
+                            <span class="vertical-align-middle">Comments</span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="content">
+                        <div>
+                            <app-comments-list></app-comments-list>
+                        </div>
+                    </ng-template>
+                </p-accordionTab>
+            </p-accordion>
+        </div>
+    </div>
+
+</div>
+
+<div class="card flex justify-content-center">
+    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="120" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+</div>

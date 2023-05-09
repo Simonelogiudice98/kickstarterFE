@@ -1,0 +1,41 @@
+<div class="wrapper">
+
+        <h1 class="text-center overviewH1">Project Overview</h1>
+        
+        <div class="overviewContainer">
+            
+            <div class="divTitle">
+               
+                <h3>{{allStepData.title}}</h3>
+            </div>
+            <div class="centralOverview">
+               
+                <div class="leftDivOverview">
+                    <img [src]="allStepData.imageUrl" alt="project img">
+                    
+                </div>
+            
+                <div class="rightDivOverview">
+                    <h4>Category: {{allStepData.category.name}}</h4>
+                    <h4>Project end date: {{ allStepData.endDate | date:'dd/MM/yyyy' }}</h4>
+                    <h4>Goal: {{allStepData.goal}} €</h4>
+                </div>     
+            </div>
+            <div class="descriptionDiv">
+                <p>{{allStepData.description}}</p>
+                
+            </div>
+            <div class="text-center mb-3">
+                <button
+                    pButton
+                    pRipple
+                    label="Confirm"
+                    class="p-button-success"
+                    (onClick)="onSubmit()"
+                >
+                </button>
+            </div>
+        </div>
+    
+    
+</div>

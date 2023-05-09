@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <h1 class="text-center">Choose your funding level</h1>
+    <div class="card levelsContainer">
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let fundingLevel of fundingLevels" class="list-group-item">
+                <div class="card-body">
+                    <div>
+                        <h5 class="card-title">{{fundingLevel.description}}</h5>
+                        <p class="card-text">Minimum Contribution: {{fundingLevel.minContribution}}</p>
+                        <h6>Rewards:</h6>
+                        <ul>
+                            <li> {{ fundingLevel.reward.description }} </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a routerLink="/Payments-method"><p-button icon="pi pi-shopping-cart" styleClass="p-button-rounded p-button-success"></p-button></a>
+                    </div>
+                </div>
+            </li>
+           
+        </ul>
+        
+    </div>
+</div>
+
+  

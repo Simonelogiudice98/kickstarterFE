@@ -1,0 +1,89 @@
+
+<div class="registerContainer">
+  <div class="divRegister">
+    <h2 class="text-center">Register</h2>
+    <form #homeForm="ngForm" class="form" (ngSubmit)="onSubmit(homeForm)">
+      <input
+        class="p-2 form-control"
+        type="text"
+        name="name"
+        placeholder="Name"
+        #name="ngModel"
+        [(ngModel)]="user.firstName"
+        required
+      />
+        <div [hidden]="name.valid || name.untouched"
+        class="alert alert-danger">
+        Name is required
+        </div>
+
+      <input
+        class="mt-4 p-2 form-control"
+        type="text"
+        name="surname"
+        placeholder="Surname"
+        #surname="ngModel"
+        [(ngModel)]="user.lastName"
+        required
+      />
+      <div [hidden]="surname.valid || surname.untouched"
+        class="alert alert-danger">
+        surname is required
+      </div>
+
+      <input
+        class="mt-4 p-2 form-control"
+        type="email"
+        name="email"
+        placeholder="Email"
+        #email="ngModel"
+        [(ngModel)]="user.email"
+        required
+      />
+      <div [hidden]="email.valid || email.untouched"
+        class="alert alert-danger">
+        email is required
+      </div>
+
+      <input
+        class="mt-4 p-2 form-control"
+        type="password"
+        name="password"
+        placeholder="Password"
+        minlength="8"
+        #psw="ngModel"
+        [(ngModel)]="user.password"
+        required
+      />
+      <div [hidden]="psw.valid || psw.untouched"
+        class="alert alert-danger">
+        password is required
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-3 mb-2">
+        <div class="flex align-items-center">
+          <p-radioButton name="selectedRole" value="Creator" [(ngModel)]="selectedRole" inputId="creator"></p-radioButton>
+          <label for="creator" class="ml-2">Creator</label>
+        </div>
+      
+        <div class="flex align-items-center">
+          <p-radioButton name="selectedRole" value="Buyer" required [(ngModel)]="selectedRole" inputId="buyer"></p-radioButton>
+          <label for="buyer" class="ml-2">Buyer</label>
+        </div>
+      </div>
+      
+
+      <button
+        pButton
+        pRipple
+        label="Create account"
+        class="p-button-success my-4"
+        [disabled]="!homeForm.valid"
+      ></button>
+    </form>
+
+    <h6 class="text-center">
+      do you have an account? <a routerLink="/login">Login</a>
+    </h6>
+  </div>
+</div>

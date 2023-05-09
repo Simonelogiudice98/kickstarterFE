@@ -1,0 +1,50 @@
+@import '../../../../assets/partials/variables';
+
+
+.container{
+    margin-top: 7vh;
+    margin-bottom:7vh;
+
+    .stepTwoContainer{
+        max-width: 450px;
+        margin: 0 auto;
+        
+        
+        .inputContainer{
+            padding:2vw;
+            border: 2px solid $lightGrey;
+            box-shadow: 8px 8px 8px $lightGrey;
+            
+
+            .divEndProject {
+                margin-bottom: 4vh;
+            }
+
+            .goalDiv{
+                margin: 0 auto;
+                margin-bottom: 4vh;
+
+            }
+            .divUpload{
+                margin-top: 4vh;
+            }
+
+            .divUrl{
+                align-items: center;
+                margin-bottom: 2vh;
+
+                input{
+                    max-width: 300px;
+                    width: 100%;
+                    border-radius: 4px;
+                    padding:10px;
+                }
+                .divMessaggeImg{
+                    max-width: 300px;
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+}

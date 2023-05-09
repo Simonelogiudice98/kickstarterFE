@@ -1,0 +1,43 @@
+<div class="loginContainer">
+  <div class="divLogin">
+    <h2 class="mb-4">Login</h2>
+    <form class="form" #logForm="ngForm" (ngSubmit)="onSubmit()">
+      <input
+        class="p-2 form-control"
+        type="email"
+        name="email"
+        #email="ngModel"
+        [(ngModel)]="accessData.email"
+        placeholder="email"
+        required
+      />
+      <div [hidden]="email.valid || email.untouched"
+        class="alert alert-danger">
+        email is required
+      </div>
+
+      <input
+        class="mt-4 p-2 form-control"
+        type="password"
+        name="password"
+        #psw="ngModel"
+        [(ngModel)]="accessData.password"
+        placeholder="password"
+        required
+      />
+      <div [hidden]="psw.valid || psw.untouched"
+        class="alert alert-danger">
+        password is required
+      </div>
+
+      <button
+        [disabled]="!logForm.valid"
+        pButton
+        pRipple
+        label="Submit"
+        class="p-button-success mt-4"
+      ></button>
+    </form>
+    <p class="my-2">Are you new? <a routerLink="/register">register</a></p>
+  </div>
+</div>

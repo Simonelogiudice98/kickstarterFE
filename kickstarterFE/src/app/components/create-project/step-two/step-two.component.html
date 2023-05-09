@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="stepTwoContainer">
+    <h3 class="text-center my-5">
+      Insert an image of your project and the duration
+    </h3>
+    <form
+      class="card flex inputContainer pt-4"
+      [formGroup]="stepTwoForm"
+    >
+      <div class="d-flex flex-column align-items-center divEndProject">
+        <label for="date" class="label mb-1">End of the project:</label>
+        <div class="d-flex justify-content-center">
+          <p-calendar
+          formControlName="endDate"
+            
+            name="endDate"
+            [showIcon]="true"
+            [required]="true"
+          ></p-calendar>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column goalDiv">
+        <label class="block font-bold" for="horizontal">Goal:</label>
+        <p-inputNumber
+          formControlName="goal"
+          name="goal"
+          [showButtons]="true"
+          buttonLayout="horizontal"
+          inputId="horizontal"
+          spinnerMode="horizontal"
+          [step]="0.25"
+          decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          mode="currency"
+          currency="EUR"
+          [ngClass]="{'is-invalid': stepTwoForm.controls['goal'].errors?.['minValue']}"
+          [required]="true"
+        ></p-inputNumber>
+        <div
+          *ngIf="stepTwoForm.controls['goal'].errors?.['minValue']"
+          class="text-danger"
+        >
+        The entered value must be greater than or equal to 100€ .
+        </div>
+      </div>
+
+      <div class="d-flex flex-column divUrl">
+        <label for="imageUrl">Image url</label>
+        <input
+          pInputText
+          type="text"
+          name="imageUrl"
+          placeholder="insert url"
+          formControlName="imageUrl"
+          [required]="true"
+        />
+        <div *ngIf="stepTwoForm.get('imageUrl')!.errors?.['required'] && stepTwoForm.get('imageUrl')!.touched" class="alert alert-danger divMessaggeImg">
+          Image is required
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

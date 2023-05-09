@@ -1,0 +1,58 @@
+@import '../../../assets/partials/variables';
+
+.homeNav{
+    border-bottom:1px solid $lightGrey;
+    
+    .divLink{
+        display: flex;
+        justify-content: space-around;
+        max-width: 70%;
+        margin: 0 auto;
+        padding-top:3vh;
+        padding-bottom:3vh;
+        
+
+        a{
+            text-decoration: none;
+            color: $grey;
+        }
+    }
+}
+
+h5{
+    color: $grey;
+    font-size: 1rem;
+}
+
+.smallTable{
+    display: flex;
+    border: 1px solid $lightGrey;
+    max-width: 70%;
+    margin: 0 auto;
+    box-shadow: 5px 5px 8px $lightGrey;
+    
+    div{
+        flex: 0 0 33%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+
+        .coloredNumbers{
+            color:$green;
+            font-size: 2rem;
+        }
+        .coloredText{
+            color:$grey;
+        }
+    }
+
+    .divBorder{
+        border-right:1px solid $lightGrey;
+    }
+}
+
+.divProjects{
+    max-width: 1200px;
+    margin: 0 auto;
+}

@@ -1,0 +1,44 @@
+@import '../../../../assets/partials/variables';
+
+
+.wrapper{
+    margin-top: 7vh;
+    margin-bottom:7vh;
+
+    .stepContainer{
+        max-width: 500px;
+        margin: 0 auto;
+
+    
+        .form{
+            margin-top: 4vh;
+            display: flex;
+            flex-direction: column;
+
+            border: 1px solid $lightGrey;
+            border-radius: 4px;
+            box-shadow: 5px 5px 5px $lightGrey;
+            padding: 2vw;
+
+            .divTitleCategory{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                .inputTitle{
+                    padding:0.5rem;
+                }
+            }
+
+            .label{
+                outline: none;
+            }
+
+            textarea , input {
+                border-radius: 4px;
+            }
+
+           
+        }
+    }
+}
