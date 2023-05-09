@@ -23,7 +23,7 @@
   
     <div class="p-field">
       <label for="expiration">Expiration date</label>
-      <input id="expiration" type="text" pInputText formControlName="expiration" class="p-inputtext p-component"/>
+      <input id="expiration" type="text" pInputText formControlName="expiration" class="p-inputtext p-component" placeholder="es: 01/23"/>
       <div *ngIf="cardForm.get('expiration') && cardForm.get('expiration')?.invalid && (cardForm.get('expiration')?.dirty || cardForm.get('expiration')?.touched)" class="text-danger">
         <div *ngIf="cardForm.get('expiration')?.errors?.['required']">Please enter your expiration date.</div>
       </div>
@@ -52,6 +52,7 @@
       <input id="country" type="text" class="p-inputtext p-component" formControlName="country">
       <div *ngIf="cardForm.get('country')?.invalid && (cardForm.get('country')?.dirty || cardForm.get('country')?.touched)" class="text-danger">
         <div *ngIf="cardForm.get('country')?.errors?.['required']">Please enter the country.</div>
+        <div *ngIf="cardForm.get('country')?.errors?.['pattern']">Only letters and spaces are accepted.</div>
       </div>
     </div>
     <div class="p-field">
@@ -59,6 +60,7 @@
       <input id="state" type="text" class="p-inputtext p-component" formControlName="state">
       <div *ngIf="cardForm.get('state')?.invalid && (cardForm.get('state')?.dirty || cardForm.get('state')?.touched)" class="text-danger">
         <div *ngIf="cardForm.get('state')?.errors?.['required']">Please enter the State/Province.</div>
+        <div *ngIf="cardForm.get('state')?.errors?.['pattern']">only letters are accepted.</div>
       </div>
     </div>
     <div class="p-field">
@@ -66,6 +68,7 @@
       <input id="city" type="text" class="p-inputtext p-component" formControlName="city">
       <div *ngIf="cardForm.get('city')?.invalid && (cardForm.get('city')?.dirty || cardForm.get('city')?.touched)" class="text-danger">
         <div *ngIf="cardForm.get('city')?.errors?.['required']">Please enter the city.</div>
+        <div *ngIf="cardForm.get('city')?.errors?.['pattern']">only letters are accepted.</div>
       </div>
     </div>
     <div class="p-field">
@@ -73,11 +76,12 @@
       <input id="address" type="text" class="p-inputtext p-component" formControlName="address">
       <div *ngIf="cardForm.get('address')?.invalid && (cardForm.get('address')?.dirty || cardForm.get('address')?.touched)" class="text-danger">
         <div *ngIf="cardForm.get('address')?.errors?.['required']">Please enter the address.</div>
+        <div *ngIf="cardForm.get('address')?.errors?.['pattern']">wrong format.</div>
       </div>
     </div>
     
-    <div class="card flex justify-content-center mt-3 mb-2">
-      <button pButton pRipple label="Submit" class="p-button-success"></button>
+    <div class="card flex justify-content-center mt-3 mb-2" >
+      <button [disabled]="!cardForm.valid" pButton pRipple label="Submit" class="p-button-success"></button>
     </div>
   </form>
 </div>

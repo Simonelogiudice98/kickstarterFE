@@ -42,11 +42,20 @@ export class FundingService {
     }
   ];
 
+  fundingLevelChoose:IFundingLevel[] = [];
+
   constructor() { }
 
   getFundingLevels(): IFundingLevel[] {
     return this.fundingLevels;
   }
 
+  addToCart(fundingLevel:IFundingLevel){
+    this.fundingLevelChoose.push(fundingLevel);
+  }
+
+  getChoosedLevels(){
+    return this.fundingLevelChoose;
+  }
  
 }

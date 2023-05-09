@@ -10,6 +10,7 @@ import { StepTwoComponent } from './components/create-project/step-two/step-two.
 import { StepThreeComponent } from './components/create-project/step-three/step-three.component';
 import { FundingComponent } from './components/funding/funding.component';
 import { PaymentsMethodComponent } from './components/payments-method/payments-method.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   ]},
   {path:"funding", component:FundingComponent},
   {path:"Payments-method", component:PaymentsMethodComponent},
+  {path:"cart", component:CartComponent},
   // { path: '**', component: PageNotFoundComponent }
 ];
 

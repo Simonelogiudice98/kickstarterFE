@@ -33,6 +33,8 @@ import { AvatarModule } from 'primeng/avatar';
 import { FundingComponent } from './components/funding/funding.component';
 import { PaymentsMethodComponent } from './components/payments-method/payments-method.component';
 import { DataViewModule } from 'primeng/dataview';
+import { CartComponent } from './components/cart/cart.component';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { DataViewModule } from 'primeng/dataview';
     CommentsListComponent,
     CommentComponent,
     FundingComponent,
-    PaymentsMethodComponent
+    PaymentsMethodComponent,
+    CartComponent
  
   ],
   imports: [
@@ -72,7 +75,8 @@ import { DataViewModule } from 'primeng/dataview';
     ReactiveFormsModule,
     CommonModule,
     AvatarModule,
-    DataViewModule
+    DataViewModule,
+    TableModule
     
   ],
   providers: [MessageService],

@@ -17,7 +17,13 @@ export class FundingComponent {
 
   ngOnInit(): void {
     this.fundingLevels = this.fundingService.getFundingLevels();
+    console.log(this.fundingLevels);
+    
   }
 
+  onClick(fundingLevel: IFundingLevel){
+    console.log(fundingLevel);
+    this.fundingService.addToCart(fundingLevel);
+  }
   
 }

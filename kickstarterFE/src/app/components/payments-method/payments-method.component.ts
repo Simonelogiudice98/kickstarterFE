@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ICardData } from 'src/app/interfaces/icard-data';
+import { PaymentsMethodService } from 'src/app/services/payments-method.service';
 
 @Component({
   selector: 'app-payments-method',
@@ -10,6 +11,7 @@ import { ICardData } from 'src/app/interfaces/icard-data';
 export class PaymentsMethodComponent {
 
   cardForm: FormGroup;
+
   cardData: ICardData = {
     cardNumber: 0,
     cardName: "",
@@ -22,7 +24,7 @@ export class PaymentsMethodComponent {
     address: ""
   };
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private payemntsMethodeService:PaymentsMethodService) {
 
     this.cardForm = this.formBuilder.group({
       cardNumber: ['', [Validators.required, Validators.pattern('[0-9]{16}')]],
@@ -30,14 +32,14 @@ export class PaymentsMethodComponent {
       expiration: ["", [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])/[0-9]{2}$')]],
       cvv: ['', [Validators.required, Validators.pattern('[0-9]{3,4}')]],
       postalCode: ['', [Validators.required, Validators.maxLength(5), Validators.pattern('[0-9]{5}')]],
-      country: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      address: ['', Validators.required]
+      country: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      state: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      city: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      address: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]]
     });
   }
 
-  onSubmit() {
+  saveCardData(){
     this.cardData.cardNumber = this.cardForm.value.cardNumber;
     this.cardData.cardName = this.cardForm.value.cardName;
     this.cardData.expiration = this.cardForm.value.expiration;
@@ -47,5 +49,10 @@ export class PaymentsMethodComponent {
     this.cardData.state = this.cardForm.value.state;
     this.cardData.city = this.cardForm.value.city;
     this.cardData.address = this.cardForm.value.address;
+  }
+
+  onSubmit() {
+    this.saveCardData()
+    this.payemntsMethodeService.saveCardData(this.cardData)
   }
 }
